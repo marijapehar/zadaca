@@ -1,0 +1,342 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Marija Pehar">
+	<meta name="subject" content="Razvoj Web Aplikacija">
+	<meta name="description" content="Zadaca iz predmeta Razvoj Web Aplikacija - Izrada osobne web stranice.">
+	<meta name="viewport" content="width = device-width, initial-scale = 1.0"/>
+	<title>Pocetna - Razvoj Web Aplikacija - Marija Pehar 2304/RR</title>
+    <style>
+        body {
+			font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-color: lightgreen;
+        }
+        header {
+			height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #e675b5;
+            padding: 10px 20px;
+			
+        }
+        .logo {
+			font-family: 'Poppins', sans-serif;
+			font-size: 36px;
+			font-weight: 600; /* bold */
+			color: white;
+			padding: 15px 0;
+		}
+        .auth-links a {
+			font-size: 18px; /* povećano */
+			font-weight: 600; /* bold */
+			color: white;
+			text-decoration: none;
+			margin-left: 20px;
+			font-family: 'Poppins', sans-serif; /* isti kao logo, ako želiš dosljednost */
+		}
+		.auth-links a:hover {
+			text-decoration: underline;
+			color: #ffeef7; /* malo svjetlija nijansa */
+		}
+        nav {
+            background-color: #c35fa3;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+		.main-content {
+			display: flex;
+			justify-content: space-between;
+			padding: 10px;
+			min-height: 350px;
+		}
+		.user-content {
+			flex: 3.2;
+			background-color: white;
+			padding: 15px;
+			border-radius: 10px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		}
+		h2 {
+			font-family: 'Poppins', sans-serif;
+			font-weight: 600;
+			color: #333;
+			text-align: center;
+			font-weight: bold;
+		}
+		h3 {
+			font-family: 'Poppins', sans-serif;
+			font-weight: 600;
+		}
+		p {
+			font-family: 'Poppins', sans-serif;
+			font-weight: 400;
+			font-size: 16px;
+			color: #555;
+			line-height: 1.6;
+			text-align: justify;
+		}
+		a {
+			font-family: 'Poppins', sans-serif;
+			font-weight: 400;
+		}
+		.image-gallery {
+			display: flex;
+			justify-content: center;
+			margin: 20px 0;
+		}
+		.image-gallery img {
+			width: 25%;
+			margin: 0 5px;
+			border-radius: 10px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			transition: transform 0.3s ease;
+		}
+		.image-gallery img:hover {
+			transform: scale(1.05);
+		}
+		.promo h3 {
+			font-size: 22px;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+		.promo p {
+			font-size: 16px;
+			line-height: 1.5;
+			text-align: left;
+		}
+		.promo {
+			flex: 0.7;
+			background-color: #e675b5;
+			color: white;
+			padding: 15px;
+			margin-left: 20px;
+			border-radius: 10px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			font-family: 'Poppins', sans-serif;
+		}
+		.promo-item {
+			display: flex;
+			align-items: flex-start;
+			gap: 10px;
+			margin-bottom: 15px;
+		}
+		.promo-item img {
+			width: 50px;
+			height: 50px;
+			object-fit: cover;
+			border-radius: 6px;
+			flex-shrink: 0;
+		}
+		.promo-item p {
+			margin: 0;
+			font-size: 14px;
+		}
+		.promo-item a {
+			color: #ffeef7;
+			text-decoration: underline;
+			font-weight: 500;
+		}
+		.promo-item a:hover {
+			color: white;
+		}	
+        footer {
+            background-color: #e675b5;
+            color: white;
+            text-align: center;
+            padding: 0px;
+			margin-top: -4px;
+			height: 50px;
+			align-items: center;      
+			justify-content: center;  
+			display: flex;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+		.logo-container {
+			display: flex;
+			align-items: center;
+		}
+		.logo-img {
+			background-color: #e675b5;
+			height: 80px; 
+			width: auto;
+			margin-right: 10px;
+		}
+		.logo-text {
+			font-family: 'Poppins', sans-serif;
+			font-size: 32px;
+			font-weight: 700;
+			color: white;
+		}
+		@media (max-width: 768px) {
+        .main-content {
+            flex-direction: column;
+        }
+        .user-content {
+            flex: 1;
+            margin-bottom: 20px;
+        }
+        .promo {
+            flex: 1;
+            margin-left: 0;
+        }
+        .image-gallery img {
+            width: 45%; /* Manje slike za mobilne uređaje */
+        }
+        nav a {
+            margin: 0 10px;
+        }
+		.auth-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+        }
+		.auth-links a {
+            margin-top: 10px;
+        }
+		}
+		@media (max-width: 480px) {
+        header {
+            flex-direction: column;
+            text-align: center;
+        }
+        .logo-text {
+            font-size: 24px;
+        }
+        .auth-links a {
+            font-size: 16px;
+            margin-left: 0;
+            margin-top: 10px;
+        }
+        .image-gallery img {
+            width: 80%; /* Slike veće na manjim ekranima */
+        }
+        .promo-item img {
+            width: 40px;
+            height: 40px;
+        }
+        footer {
+            font-size: 14px;
+        }
+		.login-link {
+			background-color: white;
+			color: #d63384;
+			font-weight: bold;
+			padding: 10px 15px;
+			border: 2px solid #d63384;
+			border-radius: 10px;
+			text-decoration: none;
+			margin-left: 20px;
+			transition: 0.3s;
+		}
+		.login-link:hover {
+			background-color: #d63384;
+			color: white;
+		}
+		}
+    </style>
+</head>
+<body>
+
+<header>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <div class="logo-container">
+        <img src="logo.jpg" alt="Logo" class="logo-img">
+        <span class="logo-text">Čuvari Prirode</span>
+    </div>
+    <div class="auth-links">
+		<a href="https://eucenje.sum.ba/simplesaml/module.php/saml/disco.php?entityID=https%3A%2F%2Feucenje.sum.ba%2Fsimplesaml%2Fmodule.php%2Fsaml%2Fsp%2Fmetadata.php%2Fmoodle-sum-sp&return=https%3A%2F%2Feucenje.sum.ba%2Fsimplesaml%2Fmodule.php%2Fsaml%2Fsp%2Fdiscoresp.php%3FAuthID%3D_e2e14a786382f24b0db63801b09439fb1b7f45e8b9%253Ahttps%253A%252F%252Feucenje.sum.ba%252Fsimplesaml%252Fmodule.php%252Fcore%252Fas_login.php%253FAuthId%253Dmoodle-sum-sp%2526ReturnTo%253Dhttps%25253A%25252F%25252Feucenje.sum.ba%25252Fmoodle%25252Fauth%25252Fsimplesaml%25252Findex.php%25253Flast_page%25253Dhttps%25253A%25252F%25252Feucenje.sum.ba%25252Fmoodle%25252Fcourse%25252Findex.php%25253Fcategoryid%25253D305&returnIDParam=idpentityid"
+       class="login-link" target="_blank">Login / Register</a>
+	</div>
+</header>
+
+<nav>
+    <a href="rwa_Zadaca2.html">Početna</a>
+    <a href="https://eucenje.sum.ba/moodle/mod/assign/view.php?id=140155">Aktivizam</a>
+    <a href="https://eucenje.sum.ba/moodle/mod/assign/view.php?id=140149">Prijava za pomoć</a>
+</nav>
+
+<div class="main-content">
+    <div class="user-content">
+        <h2>Očuvanje Životinja: Naša odgovornost</h2>
+        <p>
+            Svijet životinja suočava se s prijetnjama koje ugrožavaju mnoge vrste. Ljudske aktivnosti kao što su krčenje šuma, zagađenje i klimatske promjene uzrokuju nestanak mnogih životinja. Očuvanje ovih vrsta nije samo zadatak stručnjaka – to je odgovornost svih nas. Svaka životinja ima svoju ulogu u održavanju ravnoteže ekosustava, a gubitak vrsta može imati nepovratne posljedice.
+        </p>
+        <div class="image-gallery">
+            <img src="slika1.jpg" alt="Endangered Animal 1" />
+            <img src="slika2.jpg" alt="Endangered Animal 2" />
+            <table style="border-collapse: collapse; width: 100%; max-width: 300px; background-color: #fff; border: 5px solid #ccc; border-radius: 8px; box-shadow: 2px 2px 6px rgba(0,0,0,0.1); font-size: 14px; margin-top: 10px;">
+				<thead style="background-color: #f2f2f2;">
+					<tr>
+						<th style="padding: 8px; border: 1px solid #ccc;">Vrsta</th>
+						<th style="padding: 8px; border: 1px solid #ccc;">Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="padding: 8px; border: 1px solid #ccc;">Tigar</td>
+						<td style="padding: 8px; border: 1px solid #ccc;">Ugrožen</td>
+					</tr>
+					<tr>
+						<td style="padding: 8px; border: 1px solid #ccc;">Panda</td>
+						<td style="padding: 8px; border: 1px solid #ccc;">U oporavku</td>
+					</tr>
+					<tr>
+						<td style="padding: 8px; border: 1px solid #ccc;">Morska kornjača</td>
+						<td style="padding: 8px; border: 1px solid #ccc;">Kritično ugrožena</td>
+					</tr>
+				</tbody>
+			</table>
+        </div>
+        <p>
+            Kako možemo pomoći? Edukacijom, smanjenjem negativnog utjecaja na okoliš i podrškom organizacijama koje se bave zaštitom ugroženih vrsta. Naša akcija danas može osigurati bolju budućnost za naš planet i sve njegove stanovnike.
+        </p>
+    </div>
+    <div class="promo">
+    <h3>🐾 Najnovije vijesti</h3>
+
+		<div class="promo-item">
+			<img src="slika4.jpg" alt="Tigar" />
+			<p><strong><b>Tigar u opasnosti</b></strong><br>
+			WWF pokrenuo novu akciju.<br>
+			<a href="https://www.worldwildlife.org/species/tiger#:~:text=Tigers%20have%20lost%20an%20estimated,serious%20threats%20to%20tiger%20habitats." target="_blank">Više</a></p>
+		</div>
+		<div class="promo-item">
+			<img src="slika5.jpg" alt="Delfin" />
+			<p><strong><b>Delfin u Jadranu</b></strong><br>
+			Istraživači oduševljeni pojavom!<br>
+			<a href="https://portal.privatnismjestaj.hr/clanak/delfini-u-jadranskom-moru-gdje-ih-vidjeti#:~:text=U%20svijetu%20delfine%20se%20mo%C5%BEe,primijetiti%20u%20cijelom%20Jadranskom%20moru." target="_blank">Više</a></p>
+		</div>
+		<div class="promo-item">
+			<img src="slika6.jpg" alt="Panda" />
+			<p><strong><b>Pomozimo pandama</b></strong><br>
+			Pridruži se akciji.<br>
+			<a href="https://wwf.panda.org/discover/knowledge_hub/endangered_species/giant_panda/whatyoucando/" target="_blank">Više</a></p>
+		</div>
+		<div class="promo-item">
+			<img src="slika7.jpg" alt="Kornjača" />
+			<p><strong>Spašavanje kornjača</strong><br>
+			Volonteri čiste plaže zbog morskih kornjača.<br>
+			<a href="https://www.seaturtlestatus.org/" target="_blank">Više</a></p>
+		</div>
+	</div>
+</div>
+
+<footer>
+    <p>Izradila: Marija Pehar | © 2025</p>
+</footer>
+
+</body>
+</html>
